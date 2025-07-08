@@ -5,8 +5,8 @@ import { ListarpagoComponent } from '../pago/listarpago/listarpago.component';
 @Component({
   selector: 'app-pago',
   imports: [RouterOutlet, ListarpagoComponent],
-  templateUrl: './Pago.component.html',
-  styleUrl: './Pago.component.css',
+  templateUrl: './pago.component.html',
+  styleUrl: './pago.component.css',
 })
 export class PagoComponent {
   constructor(public route:ActivatedRoute) {}

@@ -5,8 +5,8 @@ import { ListarestadoComponent } from '../estado/listarestado/listarestado.compo
 @Component({
   selector: 'app-estado',
   imports: [RouterOutlet, ListarestadoComponent],
-  templateUrl: './Estado.component.html',
-  styleUrl: './Estado.component.css',
+  templateUrl: './estado.component.html',
+  styleUrl: './estado.component.css',
 })
 export class EstadoComponent {
   constructor(public route:ActivatedRoute) {}
