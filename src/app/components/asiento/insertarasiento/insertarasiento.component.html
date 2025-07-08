@@ -1,0 +1,44 @@
+<div class="container">
+  <div style="text-align: center; margin: 3%;">
+    <h1>{{ edicion ? 'Actualizar' : 'Registrar' }} Asiento</h1>
+  </div>
+
+  <form [formGroup]="form" (submit)="aceptar()">
+    <!-- id oculto para actualizar -->
+    <input type="hidden" formControlName="id">
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Número de Asiento</mat-label>
+      <input matInput formControlName="seatNumberAsiento" />
+      <mat-error *ngIf="form.get('seatNumberAsiento')?.hasError('required')">
+        El número de asiento es obligatorio.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Bus</mat-label>
+      <mat-select formControlName="bus">
+        <mat-option *ngFor="let b of listaBuses" [value]="b.idBus">{{ b.idBus }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('bus')?.hasError('required')">
+        El bus es obligatorio.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Estado</mat-label>
+      <mat-select formControlName="estado">
+        <mat-option *ngFor="let e of listaEstados" [value]="e.idEstado">{{ e.statusTypeEstado }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('estado')?.hasError('required')">
+        El estado es obligatorio.
+      </mat-error>
+    </mat-form-field>
+
+    <div style="text-align: center; margin-top: 20px;">
+      <button mat-raised-button color="primary" type="submit">
+        {{ edicion ? 'Actualizar' : 'Registrar' }}
+      </button>
+    </div>
+  </form>
+</div>

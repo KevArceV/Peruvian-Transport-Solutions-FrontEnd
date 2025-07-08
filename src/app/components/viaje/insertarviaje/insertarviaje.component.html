@@ -1,0 +1,77 @@
+<div class="container">
+  <div style="text-align: center; margin: 5%;">
+    <h1>{{ edicion ? 'Actualizar' : 'Registrar' }} Viaje</h1>
+  </div>
+
+  <div class="form-card">
+    <form [formGroup]="form" (submit)="aceptar()">
+      <mat-form-field appearance="outline" class="full-width">
+  <mat-label>Fecha de salida del viaje</mat-label>
+  <input
+    matInput
+    [matDatepicker]="picker"
+    formControlName="departureDateViaje"
+    placeholder="Seleccione la fecha"
+  />
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+  <mat-error *ngIf="form.get('departureDateViaje')?.hasError('required')">
+    La fecha de salida es obligatoria
+  </mat-error>
+</mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Dirección de Llegada</mat-label>
+        <input matInput formControlName="arrivalAddressBus" />
+        <mat-error *ngIf="form.get('arrivalAddressBus')?.hasError('required')">
+          La dirección de llegada es obligatoria.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+  <mat-label>Precio del viaje</mat-label>
+  <input
+    matInput
+    currencyMask
+    [options]="{ prefix: 'S/ ', thousands: ',', decimal: '.', precision: 2 }"
+    formControlName="priceViaje"
+    placeholder="S/ 0.00"
+  />
+  <mat-error *ngIf="form.get('priceViaje')?.hasError('required')">
+    El precio del viaje es obligatorio
+  </mat-error>
+</mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+  <mat-label>Hora de salida del viaje</mat-label>
+  <input
+    matInput
+    type="time"
+    formControlName="departureTimeViaje"
+    placeholder="Seleccione la hora"
+  />
+  <mat-error *ngIf="form.get('departureTimeViaje')?.hasError('required')">
+    La hora de salida es obligatoria
+  </mat-error>
+</mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Ruta</mat-label>
+        <mat-select formControlName="ruta">
+        <mat-option *ngFor="let a of listaRuta" [value]="a.idRuta">
+          {{ a.idRuta }}
+        </mat-option>
+      </mat-select>
+        <mat-error *ngIf="form.get('ruta')?.hasError('required')">
+          La ruta es obligatoria.
+        </mat-error>
+      </mat-form-field>
+
+      <div style="text-align: center; margin-top: 20px;">
+        <button mat-raised-button color="primary" type="submit">
+          {{ edicion ? 'Actualizar' : 'Registrar' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

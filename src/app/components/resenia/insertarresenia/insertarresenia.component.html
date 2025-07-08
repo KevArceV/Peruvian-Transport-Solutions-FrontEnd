@@ -1,0 +1,71 @@
+<div class="container">
+  <div style="text-align: center; margin: 3%;">
+    <h1>{{ edicion ? 'Actualizar' : 'Registrar' }} Reseña</h1>
+  </div>
+
+  <form [formGroup]="resForm" (ngSubmit)="aceptar()">
+
+    <!-- ID reseña (en modo edición, pero NO editable) -->
+    <mat-form-field appearance="outline" class="full-width" *ngIf="edicion">
+      <mat-label>ID de reseña</mat-label>
+      <input matInput formControlName="id" readonly />
+      <mat-hint>Identificador único de la reseña</mat-hint>
+    </mat-form-field>
+
+    <!-- Contenido -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Contenido</mat-label>
+      <textarea matInput rows="3" formControlName="contentResenia"></textarea>
+      <mat-error *ngIf="resForm.get('contentResenia')?.hasError('required')">
+        El contenido es obligatorio.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Hora publicación -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Hora de publicación</mat-label>
+      <input matInput [matTimepicker]="picker" formControlName="publicationDateResenia" />
+      <mat-timepicker-toggle matIconSuffix [for]="picker"></mat-timepicker-toggle>
+      <mat-timepicker #picker></mat-timepicker>
+      <mat-error *ngIf="resForm.get('publicationDateResenia')?.hasError('required')">
+        La hora es obligatoria.
+      </mat-error>
+      <mat-error *ngIf="resForm.get('publicationDateResenia')?.hasError('notFutureTime')">
+        La hora debe ser futura.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Usuario -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Usuario</mat-label>
+      <mat-select formControlName="usuario">
+        <mat-option *ngFor="let user of listaUsuarios" [value]="user.idUsuario">
+          {{ user.username }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="resForm.get('usuario')?.hasError('required')">
+        El usuario es obligatorio.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Viaje -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Viaje</mat-label>
+      <mat-select formControlName="viaje">
+        <mat-option *ngFor="let v of listaViajes" [value]="v.idViaje">
+          {{ v.idViaje }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="resForm.get('viaje')?.hasError('required')">
+        El viaje es obligatorio.
+      </mat-error>
+    </mat-form-field>
+
+    <div class="button-group" style="text-align: center; margin-top: 20px;">
+      <button mat-stroked-button color="primary" type="submit">
+        {{ edicion ? 'Actualizar' : 'Registrar' }}
+      </button>
+      
+    </div>
+  </form>
+</div>

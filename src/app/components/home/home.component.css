@@ -1,0 +1,352 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Sansita+One');
+
+
+.hero {
+  height: 80vh;
+  background: url('/assets/images/fondo.png') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Capa semitransparente para mejorar legibilidad */
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  max-width: 700px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Contenido de texto */
+.hero-content {
+  color: #fff;
+  max-width: 50%;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content .quote {
+  font-size: 1.25rem;
+  font-style: italic;
+  margin-bottom: 0.75rem;
+  color: #f0e68c;
+}
+
+.hero-content .subtitle {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Botón CTA */
+.cta {
+  background-color: #4a3e1b;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cta:hover {
+  background-color: #392e15;
+}
+
+/* Imagen del bus (opcional) */
+.bus {
+  max-width: 40%;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-overlay {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-content {
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  .bus {
+    max-width: 60%;
+  }
+}
+/* Contenedor principal del header */
+.site-header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 0.5rem 0;       /* <-- padding vertical reducido */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Alineación interna */
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Logo */
+.site-header .logo img {
+  height: 0px;
+  display: block;
+}
+
+/* Navegación principal */
+.site-header .main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.site-header .main-nav a {
+  text-decoration: none;
+  color: #555555;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.site-header .main-nav a:hover {
+  color: #333333;
+}
+
+/* Botón de Iniciar Sesión */
+.site-header .btn-login {
+  background-color: #4a3e1b;
+  color: #ffffff;
+  border: none;
+  padding: 0.rem 1rem;
+  border-radius: 0.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.site-header .btn-login:hover {
+  background-color: #392e15;
+}
+
+/* Responsive: menú hamburguesa en móvil */
+@media (max-width: 768px) {
+  .site-header .main-nav {
+    display: none;
+  }
+  /* Si quisieras añadir un botón de menú: */
+  /* .site-header .menu-toggle { display: block; } */
+}
+
+/* home.component.css */
+
+/* ---------------------------------------------------
+   Contenedor general de servicios
+--------------------------------------------------- */
+.services {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Franja blanca superior */
+.services-header {
+  background-color: #fff;
+  padding: 2rem 0;    /* ajusta alto de la franja */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.services-header .services-title {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  color: #222;
+  margin: 0;
+}
+
+/* Bloque oliva con el contenido */
+.services-body {
+  background-color: #5C5218;
+  padding: 3rem 1rem;
+  color: #fff;
+}
+/* Estilo común para ambas clases de texto */
+.services-body .services-intro,
+.services-body .services-subintro {
+  text-align: center;
+  max-width: 750px;  /* Aumento el max-width para permitir un poco más de espacio */
+  margin: 0 auto 2rem;
+  line-height: 1.7;  /* Aumento el espaciado entre líneas para mejorar la legibilidad */
+  padding: 0 1rem;   /* Añadimos un poco de espacio a los lados */
+}
+
+/* Estilo específico para el texto de introducción */
+.services-body .services-intro {
+  font-size: 1.125rem; /* Aumento el tamaño de fuente para que se vea más grande y legible */
+  color: #f5f5f5;      /* Color blanco suave */
+  font-weight: 500;     /* Un poco de peso a la fuente para mayor énfasis */
+  letter-spacing: 0.5px; /* Espaciado entre letras para hacerla más estilizada */
+}
+
+/* Estilo para la subintroducción */
+.services-body .services-subintro {
+  font-size: 1rem;     /* Un tamaño de fuente ligeramente mayor para mayor legibilidad */
+  color: #ddd;         /* Color gris suave para contraste */
+  font-weight: 400;     /* Peso de la fuente más liviano */
+  font-style: italic;   /* Agregar cursiva para dar un toque distinto */
+  letter-spacing: 0.5px; /* Agregar un poco de espaciado entre letras para mejorar la legibilidad */
+}
+
+/* Efecto para las palabras clave dentro de la introducción */
+.services-body .services-intro strong {
+  color: #f4e04d; /* Color amarillo para resaltar las palabras clave */
+  font-weight: 600; /* Negrita para resaltar aún más */
+}
+
+
+/* Grid de tarjetas */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 1fr;       /* todas las filas tienen la misma altura */
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+
+/* Tarjetas */
+.service-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  background-color: #fff;
+  text-align: center;
+  color: #333;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+.service-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+.service-card img {
+ max-width: 80%;
+  margin: auto;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Colores de fondo de cada tarjeta */
+.service-card.yellow     { background-color: #FFC107; }
+.service-card.olive      { background-color: #C5A608; }
+.service-card.beige      { background-color: #C39A52; color: #fff; }
+.service-card.green-dark { background-color: #A4953C; color: #fff; }
+.service-card.green      { background-color: #C09C30; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-auto-rows: auto;  /* deja que cada tarjeta ajuste su altura */
+  }
+  .service-card {
+    height: auto;
+  }
+}
+.site-header .logo img {
+  height: 60px;   /* o el tamaño que necesites */
+  display: block;
+}
+/* home.component.css */
+/* 1) importa la tipografía */
+
+/* 2) alinea logo + texto */
+.site-header .logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* 3) estilo del texto */
+.logo-text {
+  font-family: 'Sansita One';
+  font-size: 1.5rem;      /* ajusta según tu diseño */
+  margin-left: 0.5rem;
+  color: #5C5218;
+  white-space: nowrap;
+}
+
+/* 4) parte “Solutions” en color secundario */
+.logo-highlight {
+  color: #826720;
+}
+
+/* 5) (opcional) si quieres degradar el texto entero */
+/*
+.logo-text {
+  background: linear-gradient(90deg, #5C5218, #826720);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+*/
+
+/* Responsive: Ajuste de cuadrícula para pantallas medianas y pequeñas */
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Ajustar a 2 columnas */
+    grid-auto-rows: auto;
+  }
+  .service-card {
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .services-grid {
+    grid-template-columns: 1fr; /* Una sola columna en dispositivos muy pequeños */
+  }
+}
+
+/* Estilo adicional para mejorar la accesibilidad y contraste en pantallas más pequeñas */
+@media (max-width: 768px) {
+  .services-body .services-intro {
+    font-size: 1rem; /* Ajustamos el tamaño de la fuente para pantallas más pequeñas */
+  }
+  .services-body .services-subintro {
+    font-size: 0.95rem; /* Reducimos el tamaño de la subintro en pantallas pequeñas */
+  }
+}

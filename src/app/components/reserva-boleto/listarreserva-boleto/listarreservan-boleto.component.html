@@ -1,0 +1,115 @@
+  <div class="container">
+    <div style="text-align: center; margin:5%">
+      <h1>Lista de Reservas</h1>
+    </div>
+
+  <!----- Barra de filtro ----->
+  <section class="filtro-linea">
+    <span class="label">Filtrar&nbsp;Por</span>
+
+  <!-- Botón que abre el menú -->
+  <button mat-raised-button color="primary"
+          [matMenuTriggerFor]="menuFiltro">
+    {{ filtroLabel }}
+  </button>
+
+  <!-- Menú de opciones -->
+  <mat-menu #menuFiltro="matMenu">
+    <button mat-menu-item
+            *ngFor="let f of filtrosDisponibles"
+            (click)="filtro = f.key">
+      {{ f.label }}
+    </button>
+  </mat-menu>
+
+  <!-- Campo de entrada -->
+  <mat-form-field appearance="fill" class="campo">
+    <input matInput
+          [type]="filtro === 'monto' ? 'number' : 'text'"
+          [placeholder]="placeholder()"
+          [(ngModel)]="entrada"
+          (keyup.enter)="buscar()" />
+  </mat-form-field>
+
+  <!-- Botón buscar -->
+  <button mat-raised-button color="primary" (click)="buscar()">
+    Buscar
+  </button>
+
+  <button mat-stroked-button color="warn" (click)="reset()">
+    Limpiar
+  </button>
+
+</section>
+
+
+  <div class="panel-tabla">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      
+      <!-- No. -->
+      <ng-container matColumnDef="c1">
+        <th mat-header-cell *matHeaderCellDef> Id. </th>
+        <td mat-cell *matCellDef="let element"> {{element.idReservaBoleto}} </td>
+      </ng-container>
+
+      <!-- Ticket Amount -->
+      <ng-container matColumnDef="c2">
+        <th mat-header-cell *matHeaderCellDef> Monto del Boleto </th>
+        <td mat-cell *matCellDef="let element"> {{element.ticketAmountReservaBoleto}} </td>
+      </ng-container>
+
+      <!-- Seat Quantity -->
+      <ng-container matColumnDef="c3">
+        <th mat-header-cell *matHeaderCellDef> Cantidad de Asientos </th>
+        <td mat-cell *matCellDef="let element"> {{element.seatQuantityReservaBoleto}} </td>
+      </ng-container>
+
+      <!-- Usuario -->
+      <ng-container matColumnDef="c4">
+        <th mat-header-cell *matHeaderCellDef> Usuario </th>
+        <td mat-cell *matCellDef="let element"> {{element.usuario.username}} </td>
+      </ng-container>
+
+      <!-- Pago -->
+      <ng-container matColumnDef="c5">
+        <th mat-header-cell *matHeaderCellDef> Pago </th>
+        <td mat-cell *matCellDef="let element"> {{element.pago.paymentTypePago}} </td>
+      </ng-container>
+
+      <!-- Asiento -->
+      <ng-container matColumnDef="c6">
+        <th mat-header-cell *matHeaderCellDef> Asiento </th>
+        <td mat-cell *matCellDef="let element"> {{element.asiento.seatNumberAsiento}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="c7">
+        <th mat-header-cell *matHeaderCellDef>Actualizar</th>
+        <td mat-cell *matCellDef="let element">
+          <button  class="boton-Tabla" mat-button [routerLink]="['actualizaciones', element.idReservaBoleto]">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="c8">
+        <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+        <td mat-cell *matCellDef="let element">
+          <button class="boton-Tabla" mat-button (click)="eliminar(element.idReservaBoleto)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[4, 8, 10]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+
+  </div>
+</div>

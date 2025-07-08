@@ -1,0 +1,38 @@
+<div class="hero">
+  <!-- Botón estratégico para volver al home -->
+  <button class="btn-back" [routerLink]="['/home']">
+    <mat-icon>arrow_back</mat-icon>
+    Inicio
+  </button>
+
+  <!-- Switch de idioma -->
+  <div class="lang-switch">Es | En</div>
+
+  <!-- Tarjeta de login centrada -->
+  <div class="login-card">
+    <h2>Iniciar sesión</h2>
+
+    <mat-form-field class="full-width">
+      <mat-label>Usuario</mat-label>
+      <input matInput placeholder="Username" [(ngModel)]="username" />
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Contraseña</mat-label>
+      <input
+        type="password"
+        matInput
+        placeholder="Password"
+        [(ngModel)]="password"
+      />
+    </mat-form-field>
+
+    <div class="register-text">
+      ¿No tienes una cuenta? <a routerLink="/registro">Regístrate</a>
+    </div>
+
+    <button mat-raised-button class="login-btn" (click)="login()">
+      Ingresar
+    </button>
+  </div>
+</div>

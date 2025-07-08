@@ -1,0 +1,113 @@
+<div class="container">
+  <div style="text-align: center; margin: 5%;">
+    <h1>{{ edicion ? 'Actualizar' : 'Registrar' }} Usuario</h1>
+  </div>
+
+  <div style="margin: 5%;">
+    <form [formGroup]="usuarioForm" (ngSubmit)="aceptar()">
+
+      <mat-form-field *ngIf="edicion" appearance="outline" class="full-width">
+        <mat-label>ID</mat-label>
+        <input matInput [value]="usuarioId" readonly />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput placeholder="Ej. camisamorada" formControlName="usNombre" />
+        <mat-error *ngIf="usuarioForm.get('usNombre')?.hasError('required')">
+          El nombre es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="usuarioForm.get('usNombre')?.hasError('minlength')">
+          Debe tener al menos 4 caracteres.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Apellido</mat-label>
+        <input matInput placeholder="Ej. camisamorada" formControlName="usApellido" />
+        <mat-error *ngIf="usuarioForm.get('usApellido')?.hasError('required')">
+          El apellido es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="usuarioForm.get('usApellido')?.hasError('minlength')">
+          Debe tener al menos 4 caracteres.
+        </mat-error>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline" class="full-width">
+  <mat-label>Fecha de Nacimiento</mat-label>
+  <input
+    matInput
+    [matDatepicker]="picker"
+    formControlName="usFecNacimiento"
+    placeholder="Selecciona una fecha"
+  />
+  <mat-datepicker-toggle matSuffix [for]="picker">
+    <mat-icon matDatepickerToggleIcon>calendar_today</mat-icon>
+  </mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+  <mat-error *ngIf="usuarioForm.get('usFecNacimiento')?.hasError('required')">
+    La fecha de nacimiento es obligatoria
+  </mat-error>
+</mat-form-field>
+
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Correo</mat-label>
+        <input matInput placeholder="Ej. camisamorada" formControlName="usCorreo" />
+        <mat-error *ngIf="usuarioForm.get('usCorreo')?.hasError('required')">
+          El correo es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="usuarioForm.get('usCorreo')?.hasError('minlength')">
+          Debe tener al menos 4 caracteres.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Username</mat-label>
+        <input matInput type="username" formControlName="username" />
+        <mat-error *ngIf="usuarioForm.get('username')?.hasError('required')">
+          El username es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="usuarioForm.get('username')?.hasError('minlength')">
+          Debe tener al menos 6 caracteres.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" formControlName="password" />
+        <mat-error *ngIf="usuarioForm.get('password')?.hasError('required')">
+          La contraseña es obligatoria.
+        </mat-error>
+        <mat-error *ngIf="usuarioForm.get('password')?.hasError('minlength')">
+          Debe tener al menos 6 caracteres.
+        </mat-error>
+      </mat-form-field>
+
+      <div class="estado-radio" style="margin-top:10px;">
+        <label>Estado del usuario:</label>
+        <mat-radio-group formControlName="enabled">
+          <mat-radio-button [value]="true">Activo</mat-radio-button>
+          <mat-radio-button [value]="false">Inactivo</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Roles</mat-label>
+        <mat-select formControlName="roles" multiple>
+          <mat-option *ngFor="let o of listaRol" [value]="o.rol"></mat-option>
+        </mat-select>
+        <mat-error *ngIf="usuarioForm.get('roles')?.hasError('required')">
+          El rol es obligatorio.
+        </mat-error>
+      </mat-form-field>
+      
+
+      <div style="text-align: center; margin-top: 20px;">
+        <button mat-raised-button color="primary" type="submit">
+          {{ edicion ? 'Actualizar' : 'Registrar' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

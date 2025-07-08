@@ -1,0 +1,39 @@
+<h1>Lista de Asientos</h1>
+
+<div class="acciones-superiores">
+  <button mat-raised-button color="accent" [routerLink]="['/rutaAsiento/insertar']">
+    <mat-icon>add</mat-icon> Agregar Asiento
+  </button>
+</div>
+
+<mat-form-field style="width: 100%; margin-top: 1rem;">
+  <input matInput placeholder="Buscar" [(ngModel)]="filtro" (keyup)="aplicarFiltro()">
+</mat-form-field>
+
+<p>Total registros: {{ totalRegistros }}</p>
+
+<div class="contenedor-tarjetas">
+  <div class="tarjeta" *ngFor="let element of asientosPaginados">
+    <p><strong>ID:</strong> {{ element.idAsiento }}</p>
+    <p><strong>Número de asiento:</strong> {{ element.seatNumberAsiento }}</p>
+    <p><strong>Bus:</strong> {{ element.bus.idBus }}</p>
+    <p><strong>Estado:</strong> {{ element.estado.statusTypeEstado }}</p>
+
+    <div class="acciones">
+      <button mat-raised-button color="primary" [routerLink]="['actualizaciones', element.idAsiento]">
+        <mat-icon>edit</mat-icon> Actualizar
+      </button>
+      <button mat-raised-button color="warn" (click)="eliminar(element.idAsiento)">
+        <mat-icon>delete</mat-icon> Eliminar
+      </button>
+    </div>
+  </div>
+</div>
+
+<mat-paginator
+  [length]="dataSource.filteredData.length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[4, 10, 20]"
+  showFirstLastButtons
+  (page)="cambiarPagina($event)">
+</mat-paginator>

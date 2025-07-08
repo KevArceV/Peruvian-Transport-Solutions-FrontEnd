@@ -1,0 +1,57 @@
+.titulo {
+  font-family: 'Abhaya Libre', serif;
+  font-weight: 800;
+  color: #000000;
+  text-align: center;
+  margin: 5% 0;
+  font-size: 2.5rem;
+}
+
+.full-width {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.contador {
+  margin-top: 10px;
+  text-align: center;
+  font-family: 'Prompt', sans-serif;
+}
+
+.contenedor-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 0 1rem;
+}
+
+.tarjeta {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+}
+
+.cuadro-estado {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.acciones-superiores button {
+  margin-bottom: 10px;
+  background-color: #826720 !important;
+  color: #fff !important;
+}
+
+.acciones-superiores button:hover {
+  background-color: #5f4d17 !important;
+}

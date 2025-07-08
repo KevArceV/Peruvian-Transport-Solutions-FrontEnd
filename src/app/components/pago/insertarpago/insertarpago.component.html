@@ -1,0 +1,25 @@
+<div class="container">
+ <div style="text-align: center;"><h1>{{ edicion ? 'Actualizar' : 'Registrar' }} Pago</h1></div>
+ <div >
+    <form [formGroup]="form" (submit)="aceptar()">
+
+      <mat-form-field>
+        <mat-label>Tipo de Pago</mat-label>
+        <mat-select formControlName="type">
+          @for (food of types; track food) {
+          <mat-option [value]="food.value">{{ food.viewValue }}</mat-option>
+          }
+        </mat-select>
+        <mat-error *ngIf="form.get('tipo')?.hasError('required')">
+          El tipo es obligatorio!!
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <div style="text-align: center">
+        <button mat-raised-button color="primary" type="submit">
+          {{ edicion ? 'Actualizar' : 'Registrar' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

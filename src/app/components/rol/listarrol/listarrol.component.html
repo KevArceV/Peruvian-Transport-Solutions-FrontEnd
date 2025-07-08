@@ -1,0 +1,45 @@
+<h1>Lista de Roles</h1>
+
+<div class="acciones-superiores">
+  <button mat-raised-button [routerLink]="['/rutaRol/insertar']">
+    <mat-icon>add</mat-icon> Agregar Rol
+  </button>
+</div>
+
+<mat-form-field appearance="outline">
+  <mat-label>Filtrar roles</mat-label>
+  <input matInput [(ngModel)]="filtro" (ngModelChange)="aplicarFiltro()" placeholder="Buscar por id, rol o usuario" />
+</mat-form-field>
+
+<!-- contador -->
+<p style="margin-top: 10px; text-align:center;">
+  Mostrando {{ rolesPaginados.length }} de {{ totalRegistros }} registros
+</p>
+
+<!-- contenedor de tarjetas -->
+<div class="contenedor-tarjetas">
+  <mat-card class="tarjeta" *ngFor="let element of rolesPaginados">
+    <mat-card-header>
+      <mat-card-title>{{ element.rol }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>ID Rol:</strong> {{ element.id }}</p> 
+    </mat-card-content>
+    <mat-card-actions class="acciones">
+      <button mat-raised-button color="primary" [routerLink]="['actualizaciones', element.id]">
+        <mat-icon>edit</mat-icon> Actualizar
+      </button>
+      <button mat-raised-button color="warn" (click)="eliminar(element.id)">
+        <mat-icon>delete</mat-icon> Eliminar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<mat-paginator
+  [length]="totalRegistros"
+  [pageSize]="pageSize"
+  [pageIndex]="paginaActual"
+  [pageSizeOptions]="[4,8,12]"
+  showFirstLastButtons>
+</mat-paginator>

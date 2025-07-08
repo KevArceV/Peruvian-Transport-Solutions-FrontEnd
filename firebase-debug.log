@@ -1,0 +1,45 @@
+[debug] [2025-07-08T01:14:46.613Z] ----------------------------------------------------------------------
+[debug] [2025-07-08T01:14:46.615Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Salvador\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init hosting
+[debug] [2025-07-08T01:14:46.615Z] CLI Version:   14.9.0
+[debug] [2025-07-08T01:14:46.615Z] Platform:      win32
+[debug] [2025-07-08T01:14:46.615Z] Node Version:  v22.14.0
+[debug] [2025-07-08T01:14:46.616Z] Time:          Mon Jul 07 2025 20:14:46 GMT-0500 (hora estándar de Perú)
+[debug] [2025-07-08T01:14:46.616Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-08T01:14:46.784Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-08T01:14:46.784Z] > authorizing via signed-in user (syrribarrenh@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\UPC\UPC\Salvador Yrribarren\Peruvian-Transport-Solutions-FrontEnd
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-07-08T01:14:48.198Z] Using project from CLI flag: grubip-test
+[debug] [2025-07-08T01:14:48.199Z] Checked if tokens are valid: true, expires at: 1751940876359
+[debug] [2025-07-08T01:14:48.199Z] Checked if tokens are valid: true, expires at: 1751940876359
+[debug] [2025-07-08T01:14:48.200Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/grubip-test [none]
+[debug] [2025-07-08T01:14:48.804Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/grubip-test 403
+[debug] [2025-07-08T01:14:48.804Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/grubip-test {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2025-07-08T01:14:48.805Z] Request to https://firebase.googleapis.com/v1beta1/projects/grubip-test had HTTP Error: 403, The caller does not have permission
+[debug] [2025-07-08T01:14:48.922Z] FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/grubip-test had HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\Salvador\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:52:12)
+    at RetryOperation._fn (C:\Users\Salvador\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:312:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[error] 
+[error] Error: Failed to get Firebase project grubip-test. Please make sure the project exists and your account has permission to access it.

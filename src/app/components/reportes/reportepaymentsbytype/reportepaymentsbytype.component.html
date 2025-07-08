@@ -1,0 +1,15 @@
+<div class="title-container">
+    <div style="text-align: center" class="title">
+        <h1>Reporte de Pagos por Tipo</h1>
+    </div>
+    <div style="text-align: center" class="chart-container">
+        <canvas
+        baseChart
+        [datasets]="[{ data: pieChartData }]"
+        [labels]="pieChartLabels"
+        [options]="pieChartOptions"
+        [type]="pieChartType"
+        [legend]="pieChartLegend"
+        ></canvas>
+    </div>
+</div>

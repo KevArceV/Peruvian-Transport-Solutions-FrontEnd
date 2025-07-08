@@ -1,0 +1,12 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.estado-radio {
+  margin-top: 15px;
+}

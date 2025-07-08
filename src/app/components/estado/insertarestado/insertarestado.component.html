@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="titulo-seccion">
+    <h1>{{ edicion ? 'Actualizar Estado' : 'Registrar Estado' }}</h1>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="aceptar()" class="formulario">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Tipo de Estado</mat-label>
+      <mat-select formControlName="type">
+        <mat-option *ngFor="let option of types" [value]="option.value">
+          {{ option.viewValue }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('type')?.hasError('required')">
+        El tipo de estado es obligatorio.
+      </mat-error>
+    </mat-form-field>
+
+    <div class="acciones-formulario">
+      <button mat-raised-button color="primary" type="submit">
+        {{ edicion ? 'Actualizar' : 'Registrar' }}
+      </button>
+    </div>
+  </form>
+</div>

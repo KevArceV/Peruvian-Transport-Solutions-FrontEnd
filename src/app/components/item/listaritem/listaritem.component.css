@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&family=Prompt&display=swap');
+
+/* TITULOS CENTRADOS */
+h1 {
+  font-family: 'Abhaya Libre', serif;
+  font-weight: 800;
+  color: #000000;
+  text-align: center;
+  margin: 5% 0;
+  font-size: 2.5rem;
+}
+
+/* TEXTO GENERAL */
+body, p, label, input, button, select, mat-option, mat-label {
+  font-family: 'Prompt', sans-serif;
+}
+
+/* CONTENEDOR DE TARJETAS */
+.contenedor-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 0 1rem;
+}
+
+/* TARJETA */
+.tarjeta {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+  background-color: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+}
+
+/* ACCIONES EN TARJETA */
+.tarjeta .acciones {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* BOTONES */
+button {
+  background-color: #826720 !important;
+  color: #ffffff !important;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #5f4d17 !important;
+}
+
+/* BOTÓN DE AGREGAR SUPERIOR */
+.acciones-superiores button {
+  background-color: #826720 !important;
+  color: #ffffff !important;
+}
+
+.acciones-superiores button:hover {
+  background-color: #5f4d17 !important;
+}
+
+/* INPUT DEL BUSCADOR */
+mat-form-field {
+  margin-top: 1rem;
+  width: 100%;
+}

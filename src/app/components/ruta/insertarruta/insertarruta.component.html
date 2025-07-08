@@ -1,0 +1,27 @@
+<div class="ruta-container">
+  <!-- selector de Item -->
+  <div class="form-section">
+    <label for="itemSelect">Item (FK):</label>
+    <select
+      id="itemSelect"
+      class="form-control"
+      [(ngModel)]="selectedItemId"
+      name="itemSelect"
+    >
+      <option [ngValue]="null" disabled>-- Selecciona un item --</option>
+      <option *ngFor="let it of listaItem" [ngValue]="it.idItem">
+        {{ it.titleItem || ('ID: ' + it.idItem) }}
+      </option>
+    </select>
+  </div>
+
+  <!-- mapa -->
+  <div id="map" class="map-container"></div>
+
+  <!-- botones -->
+  <div class="form-actions">
+    <button (click)="aceptar()" class="btn btn-primary">
+      {{ edicion ? 'Actualizar' : 'Crear' }} Ruta
+    </button>
+  </div>
+</div>

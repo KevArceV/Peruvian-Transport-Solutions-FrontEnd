@@ -1,0 +1,64 @@
+<h1>Lista de Reseñas</h1>
+
+<div class="acciones-superiores">
+  <button mat-raised-button color="accent" [routerLink]="['/rutaResenia/insertar']">
+    <mat-icon>add</mat-icon> Agregar Reseña
+  </button>
+</div>
+
+<mat-form-field appearance="outline" style="width: 100%; margin-top: 1rem;">
+  <mat-label>Buscar reseña</mat-label>
+  <input
+    matInput
+    placeholder="Buscar por contenido o usuario"
+    [(ngModel)]="resFiltro"
+    (keyup)="resAplicarFiltro()"
+  />
+</mat-form-field>
+
+<p>Total registros: {{ totalRegistros }}</p>
+
+<div class="contenedor-tarjetas">
+  <mat-card class="tarjeta" *ngFor="let element of reseniasPaginadas">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <img
+          class="avatar"
+          [src]="'https://randomuser.me/api/portraits/lego/' + element.usuario.idUsuario + '.jpg'"
+          alt="Foto usuario"
+        />
+      </div>
+      <mat-card-title>{{ element.usuario.username }}</mat-card-title>
+      <mat-card-subtitle>
+        Publicada: {{ element.publicationDateResenia }}
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p><strong>Contenido:</strong> {{ element.contentResenia }}</p>
+      <p><strong>Likes:</strong> {{ element.likesResenia }}</p>
+      <p><strong>ID Viaje:</strong> {{ element.viaje.idViaje }}</p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-stroked-button color="primary" (click)="sumarLike(element)">
+        <mat-icon>thumb_up</mat-icon> Like
+      </button>
+      
+  <button mat-raised-button color="accent" [routerLink]="['/rutaResenia/actualizaciones', element.idResenia]">
+    <mat-icon>edit</mat-icon> Actualizar
+  </button>
+      <button mat-stroked-button color="warn" (click)="eliminar(element.idResenia)">
+        <mat-icon>delete</mat-icon> Eliminar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<mat-paginator
+  [length]="resDataSource.filteredData.length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[4, 10, 20]"
+  showFirstLastButtons
+  (page)="cambiarPagina($event)">
+</mat-paginator>

@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&family=Prompt&display=swap');
+
+/* TÍTULO */
+h1 {
+  font-family: 'Abhaya Libre', serif;
+  font-weight: 800;
+  text-align: center;
+  color: #000000;
+  margin: 1% 0;
+  font-size: 2.5rem;
+}
+
+/* TEXTO GENERAL */
+body, p, label, input, button, select, textarea, mat-label {
+  font-family: 'Prompt', sans-serif;
+}
+
+/* FORMULARIO */
+form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* CAMPOS */
+mat-form-field.full-width {
+  width: 100%;
+}
+
+/* BOTÓN */
+button {
+  background-color: #826720 !important;
+  color: #ffffff !important;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #5f4d17 !important;
+}

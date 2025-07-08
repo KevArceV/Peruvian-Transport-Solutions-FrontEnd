@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&family=Prompt&display=swap');
+
+/* TÍTULO CENTRADO Y GRANDE */
+h1 {
+  font-family: 'Abhaya Libre', serif;
+  font-weight: 800;
+  color: #000000;
+  text-align: center;
+  margin: 1.5% 0; /* antes estaba 3% ahora más compacto */
+  font-size: 2.5rem;
+}
+/* TEXTO GENERAL */
+body, p, label, input, button, select, mat-option, mat-label, textarea {
+  font-family: 'Prompt', sans-serif;
+}
+
+/* CONTENEDOR */
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* FORMULARIO MÁS COMPACTO */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 400px;
+  margin: auto;
+}
+
+/* CAMPOS DEL FORMULARIO */
+mat-form-field.full-width {
+  width: 100%;
+}
+
+/* BOTONES */
+button {
+  background-color: #826720 !important;
+  color: #ffffff !important;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #5f4d17 !important;
+}
+
+/* CONTENEDOR DEL BOTÓN */
+form > div {
+  margin-top: 0.5rem;
+}

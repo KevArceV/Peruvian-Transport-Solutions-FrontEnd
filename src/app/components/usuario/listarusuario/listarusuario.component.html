@@ -1,0 +1,87 @@
+<h1 class="titulo">Lista de Usuarios</h1>
+
+<div class="buscar-container">
+  <span class="buscar-label"><strong>Búsqueda de usuarios:</strong></span>
+  <mat-form-field appearance="outline" class="buscar-input">
+    <mat-label>Filtrar</mat-label>
+    <input
+      matInput
+      placeholder="Ej. admin, conductor, etc."
+      [(ngModel)]="usFiltro"
+      (ngModelChange)="usAplicarFiltro()"
+    />
+  </mat-form-field>
+</div>
+
+<div class="agregar-container">
+  <span>¿Deseas agregar un usuario? Haz click aquí:</span>
+  <button class="agregar-btn" [routerLink]="['/rutaUsuario/insertar']">
+    <mat-icon>add</mat-icon> Agregar usuario
+  </button>
+</div>
+
+<div class="contenedor-tarjetas">
+  <mat-card
+    class="tarjeta"
+    *ngFor="let element of (usDataSource.filteredData || []).slice(
+      (paginator?.pageIndex || 0) * (paginator?.pageSize || 4),
+      ((paginator?.pageIndex || 0) + 1) * (paginator?.pageSize || 4)
+    )"
+  >
+    <mat-card-header>
+      <img
+        mat-card-avatar
+        [src]="'https://randomuser.me/api/portraits/lego/' + element.idUsuario + '.jpg'"
+        alt="Avatar"
+      />
+      <mat-card-title>{{ element.usNombre }} {{ element.usApellido }}</mat-card-title>
+      <mat-card-subtitle>
+        {{ element.role.rol }}
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p><strong>ID:</strong> {{ element.idUsuario }}</p>
+      <p><strong>Fecha de Nacimiento:</strong> {{ element.usFecNacimiento | date:'longDate' }}</p>
+      <p><strong>Correo:</strong> {{ element.usCorreo }}</p>
+      <p><strong>Usuario:</strong> {{ element.username }}</p>
+      <p>
+        <strong>Password:</strong> *****
+        <button
+          mat-icon-button
+          color="primary"
+          class="btn-eye"
+          (click)="showPasswordWarning()"
+        >
+          <mat-icon>remove_red_eye</mat-icon>
+        </button>
+      </p>
+      <p><strong>Estado:</strong> {{ element.usEnable ? 'Activo' : 'Inactivo' }}</p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button
+        mat-stroked-button
+        color="primary"
+        [routerLink]="['/rutaUsuario/actualizaciones', element.idUsuario]"
+      >
+        <mat-icon>edit</mat-icon> Editar
+      </button>
+      <button
+        mat-stroked-button
+        color="warn"
+        (click)="eliminar(element.idUsuario)"
+      >
+        <mat-icon>delete</mat-icon> Eliminar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<mat-paginator
+  [length]="usDataSource.filteredData.length"
+  [pageSizeOptions]="[4, 8, 12]"
+  [pageSize]="4"
+  showFirstLastButtons
+>
+</mat-paginator>

@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="titulo-seccion">
+    <h1>Lista de viajes</h1>
+  </div>
+
+  <div class="cantidad-registros">
+    <p>Cantidad de viajes: {{ dataSource.data.length }}</p>
+  </div>
+
+  <div class="buscador-container">
+    <span class="buscador-label">Buscar:</span>
+    <button class="mat-button">
+      <mat-icon>search</mat-icon>
+    </button>
+    <mat-form-field class="buscador-input">
+      <input
+        matInput
+        placeholder="Ej. ruta o precio"
+        [(ngModel)]="viajeFiltro"
+        (ngModelChange)="aplicarFiltro()"
+        name="filtroNombre"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="panel-tabla">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="c1">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.idViaje }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="c2">
+        <th mat-header-cell *matHeaderCellDef>Fecha</th>
+        <td mat-cell *matCellDef="let element">{{ element.departureDateViaje }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="c3">
+        <th mat-header-cell *matHeaderCellDef>Dirección de llegada</th>
+        <td mat-cell *matCellDef="let element">{{ element.arrivalAddressBus }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="c4">
+        <th mat-header-cell *matHeaderCellDef>Precio</th>
+        <td mat-cell *matCellDef="let element">{{ element.priceViaje }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="c5">
+        <th mat-header-cell *matHeaderCellDef>Tiempo</th>
+        <td mat-cell *matCellDef="let element">{{ element.departureTimeViaje }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="c6">
+        <th mat-header-cell *matHeaderCellDef>Ruta</th>
+        <td mat-cell *matCellDef="let element">{{ element.ruta.idRuta }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="c7">
+        <th mat-header-cell *matHeaderCellDef>Actualizar</th>
+        <td mat-cell *matCellDef="let element">
+          <button class="boton-Tabla" mat-button [routerLink]="['actualizaciones', element.idViaje]">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="c8">
+        <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+        <td mat-cell *matCellDef="let element">
+          <button class="boton-Tabla" mat-button (click)="eliminar(element.idViaje)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[4, 8, 10]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+  </div>
+</div>

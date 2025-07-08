@@ -1,0 +1,35 @@
+.ruta-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .ruta-container {
+    grid-template-columns: 300px 1fr;
+  }
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-actions {
+  grid-column: 1 / -1;
+  text-align: right;
+  margin-top: 1rem;
+}
+
+.map-container {
+  height: 500px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

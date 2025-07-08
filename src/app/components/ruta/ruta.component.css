@@ -1,0 +1,38 @@
+/* contenedor principal con CSS Grid */
+.ruta-container {
+  display: grid;
+  grid-template-columns: 1fr;     /* en móvil, una columna */
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* a partir de 768px, dos columnas: selector + mapa */
+@media (min-width: 768px) {
+  .ruta-container {
+    grid-template-columns: 300px 1fr;
+  }
+}
+
+/* estilo de la sección del form */
+.form-section {
+  display: flex;
+  flex-direction: column;
+}
+
+/* estilos para el select */
+.form-section label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+.form-section .form-control {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+/* mapa */
+.map-container {
+  width: 100%;
+  height: 500px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

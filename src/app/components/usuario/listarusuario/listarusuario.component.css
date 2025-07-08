@@ -1,0 +1,90 @@
+/* TITULOS */
+h1.titulo {
+  font-family: 'Abhaya Libre', serif;
+  font-weight: 800;
+  color: #000000;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* CONTENEDOR DE BÚSQUEDA */
+.buscar-container {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.buscar-label {
+  font-weight: 600;
+}
+
+.buscar-input {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* CONTENEDOR DE AGREGAR */
+.agregar-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.agregar-btn {
+  background-color: #826720 !important;
+  color: #ffffff !important;
+}
+
+.agregar-btn:hover {
+  background-color: #5f4d17 !important;
+}
+
+/* CONTENEDOR DE TARJETAS */
+.contenedor-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+/* TARJETA */
+mat-card.tarjeta {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  background-color: #ffffff;
+}
+
+mat-card.tarjeta:hover {
+  transform: translateY(-5px);
+}
+
+/* CONTENIDO DE LA TARJETA */
+mat-card-content p {
+  margin: 0.5rem 0;
+}
+
+/* ACCIONES DE LA TARJETA */
+mat-card-actions button {
+  background-color: #826720 !important;
+  color: #ffffff !important;
+}
+
+mat-card-actions button:hover {
+  background-color: #5f4d17 !important;
+}
+
+.btn-eye {
+  vertical-align: middle;
+  margin-left: 0.3rem;
+}
+
+/* PAGINADOR */
+mat-paginator {
+  margin-top: 2rem;
+}

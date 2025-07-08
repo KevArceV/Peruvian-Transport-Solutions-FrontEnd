@@ -1,0 +1,90 @@
+<!-- home.component.html -->
+<header class="site-header">
+  <div class="container">
+    <a routerLink="/" class="logo">
+      <img src="assets/images/logo.png" alt="Logo Peruvian Transport">
+      <span class="logo-text">
+        Peruvian Transport 
+        <span class="logo-highlight">Solutions</span>
+      </span>
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a routerLink="/guia-uso">Guía de uso</a></li>
+        <li><a routerLink="/trayectoria">Trayectoria</a></li>
+        <li><a routerLink="/conocenos">Conócenos</a></li>
+      </ul>
+    </nav>
+    <button 
+      class="cta" 
+      [routerLink]="['/login']" 
+      *ngIf="!isLoggedIn">
+      Iniciar Sesion
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <h1>¡Visita a los mejores lugares del Perú!</h1>
+      <p class="quote">
+        "Explora Perú como nunca antes: seguro, cómodo y a tu ritmo"
+      </p>
+      <p class="subtitle">
+        Reserva tu próxima aventura desde Lima hacia destinos inolvidables.
+      </p>
+      <button class="cta">TRAZA TU RUTA</button>
+    </div>
+    <!-- si quieres colocar el bus encima del fondo, descomenta esta línea -->
+    <!-- <img src="assets/images/bus.png" alt="Bus Peruvian Transport" class="bus"> -->
+  </div>
+</section>
+<!-- home.component.html -->
+<section class="services">
+  <!-- Franja blanca con el título -->
+  <div class="services-header">
+    <div class="container">
+      <h2 class="services-title">Nuestros Servicios</h2>
+    </div>
+  </div>
+
+  <!-- Bloque verde-oliva con el resto del contenido -->
+  <div class="services-body">
+    <div class="container">
+      <p class="services-intro">
+        En Peruvian Transport Solutions, conectamos a los viajeros con lo mejor del Perú
+        mediante una plataforma inteligente y fácil de usar.
+      </p>
+      <p class="services-subintro">
+        Estos son los servicios que ofrecemos para ayudarte a planificar tu próxima aventura con total confianza:
+      </p>
+
+      <div class="services-grid">
+        <div class="service-card yellow">
+          <h3>Reserva de boletos en línea</h3>
+          <img src="/assets/images/reserva boletos - Presentacion.png" alt="Reserva de boletos">
+        </div>
+        <div class="service-card olive">
+          <h3>Planificación de rutas turísticas personalizadas</h3>
+          <img src="/assets/images/planificacion ruta - Presentacion.png" alt="Planificación de rutas">
+        </div>
+        <div class="service-card beige">
+          <h3>Recomendaciones de hospedajes y restaurantes</h3>
+          <img src="assets/images/recomendaciones - Presentacion.png" alt="Recomendaciones">
+        </div>
+        <div class="service-card green-dark">
+          <h3>Ranking dinámico de destinos</h3>
+          <img src="assets/images/ranking destinos - Presentacion.png" alt="Ranking de destinos">
+        </div>
+        <div class="service-card green">
+          <h3>Red colaborativa de viajeros</h3>
+          <img src="assets/images/red colaborativa - Presentacion.png" alt="Red colaborativa">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="services-header">
+    <div class="container">
+    </div>

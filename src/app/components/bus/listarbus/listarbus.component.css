@@ -1,0 +1,191 @@
+/* =========================================================================
+   ÁMBITO: SOLO este componente  (Angular aplica ViewEncapsulation por defecto)
+   ========================================================================= */
+:host {
+  /* paleta local */
+  --brown-main : #8d7b40;
+  --brown-lite : #a39259;
+  --gray-bg    : #e3e3e3;
+  --gray-hover : #d6d6d6;
+  --stripe     : #f9f9fb;
+  display: block;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-inline: 1rem;
+}
+
+/* ---------- título centrado ---------- */
+.titulo-seccion {
+  text-align: center;
+  margin: 3rem 0 2rem;
+}
+
+.titulo-seccion h1 {
+  font: 700 2.3rem "Georgia", serif;
+  margin: 0;
+}
+
+/* ---------- cantidad de registros ---------- */
+.cantidad-registros {
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 1.4rem;
+}
+
+/* ---------- contenedor del buscador ---------- */
+.buscador-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: .8rem;
+  margin-bottom: 2.2rem;
+}
+
+.buscador-label {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ---------- botón con icono lupa ---------- */
+.buscador-container button.mat-button {
+  border-radius: 8px;
+  min-width: 44px;
+  height: 44px;
+  padding: 0;
+  background: var(--brown-main);
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,.15);
+  transition: background .2s;
+}
+.buscador-container button.mat-button:hover {
+  background: var(--brown-lite);
+}
+
+/* ---------- campo de texto ---------- */
+.buscador-input {
+  flex: 1 1 420px;
+}
+.buscador-input .mat-mdc-text-field-wrapper {
+  border-radius: 999px;
+  background: var(--gray-bg);
+  padding-inline: 1rem;
+  transition: background .2s;
+}
+.buscador-input .mat-mdc-text-field-wrapper:hover {
+  background: var(--gray-hover);
+}
+.buscador-input.mat-focused .mat-mdc-text-field-wrapper {
+  box-shadow: inset 0 0 0 2px var(--brown-main);
+}
+.mdc-text-field__input::placeholder {
+  opacity: .7;
+}
+
+
+/* ---------- título ---------- */
+h1 {
+  font: 700 2.3rem "Georgia", serif;
+  margin: 0;
+}
+
+/* ---------- barra de filtros ---------- */
+.filtro-linea {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: .9rem;                  /* separación uniforme */
+  margin: 2rem 0 1.6rem;
+}
+
+.label {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ---------- botones pill (basados en atributos) ---------- */
+button[mat-raised-button][color="primary"]   {        /* Seleccionar / Buscar */
+  border-radius: 999px;
+  min-width: 115px;
+  text-transform: none;
+  font-weight: 500;
+  background: var(--brown-main);
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,.15);
+  transition: background .2s;
+}
+button[mat-raised-button][color="primary"]:hover {
+  background: var(--brown-lite);
+}
+
+button[mat-stroked-button][color="warn"] {           /* Limpiar */
+  border-radius: 999px;
+  min-width: 115px;
+  text-transform: none;
+  font-weight: 600;
+  border-color: var(--brown-main);
+  color: var(--brown-main);
+}
+button[mat-stroked-button][color="warn"]:hover {
+  background: rgba(141,123,64,.08);
+}
+
+/* ---------- campo de entrada ---------- */
+.campo { flex: 1 1 420px; }
+
+.campo .mat-mdc-text-field-wrapper {
+  border-radius: 999px;
+  background: var(--gray-bg);
+  padding-inline: 1rem;
+  transition: background .2s;
+}
+.campo .mat-mdc-text-field-wrapper:hover {
+  background: var(--gray-hover);
+}
+.campo.mat-focused .mat-mdc-text-field-wrapper {
+  box-shadow: inset 0 0 0 2px var(--brown-main);
+}
+.mdc-text-field__input::placeholder { opacity: .7; }
+
+/* ---------- menú ---------- */
+.mat-mdc-menu-item { color: var(--brown-main); }
+.mat-mdc-menu-item:hover { background: rgba(141,123,64,.08); }
+
+/* ---------- tabla ---------- */
+table { width: 100%; border-collapse: collapse; }
+
+th.mat-header-cell {
+  font-weight: 600;
+  text-align: left;
+  padding: .8rem .6rem;
+  border-bottom: 2px solid #ececec;
+}
+
+/* ---------- panel que enmarca la tabla ---------- */
+.panel-tabla {
+  background: var(--brown-main);                 /* fondo blanco de la tabla   */
+  padding: 1.6rem 1.2rem;              /* aire interior              */
+  border-radius: 12px;                 /* esquinas suaves            */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  max-width: 1020px;                   /* ancho controlado           */
+  margin: 1.5rem auto 3rem;            /* centrado y separación      */
+  overflow-x: auto;                    /* scroll horizontal seguro   */
+}
+
+/* mantiene tus stripes / hover definidos antes */
+
+td.mat-cell { padding: .7rem .6rem; }
+
+tr.mat-row:nth-child(even) { background: var(--stripe); }
+tr.mat-row:hover           { background: #fffbf4; }
+
+.boton-Tabla {
+  border-radius: 999px;
+  min-width: 20px;
+  text-transform: none;
+  font-weight: 500;
+  background: var(--brown-main);  /* Cambia según el color que desees */
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,.15);
+}

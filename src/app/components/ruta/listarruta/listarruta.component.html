@@ -1,0 +1,40 @@
+<h1>Lista de Rutas</h1>
+
+<div class="acciones-superiores">
+  <button mat-raised-button color="accent" [routerLink]="['/rutaRuta/insertar']">
+    <mat-icon>add</mat-icon> Agregar Ruta
+  </button>
+</div>
+  
+<mat-form-field style="width: 100%; margin-top: 1rem;">
+  <input matInput placeholder="Buscar" [(ngModel)]="filtro" (keyup)="aplicarFiltro()">
+</mat-form-field>
+
+<p>Total registros: {{ totalRegistros }}</p>
+
+<div class="contenedor-tarjetas">
+  <div class="tarjeta" *ngFor="let element of itemsPaginados">
+    <p><strong>ID:</strong> {{ element.idRuta }}</p>
+    <p><strong>Latitud:</strong> {{ element.lat }}</p>
+    <p><strong>Longitud:</strong> {{ element.lng }}</p>
+    <p><strong>Item:</strong> {{ element.item.idItem}}</p>
+
+
+    <div class="acciones">
+      <button mat-raised-button color="primary" [routerLink]="['actualizaciones', element.idRuta]">
+        <mat-icon>edit</mat-icon> Actualizar
+      </button>
+      <button mat-raised-button color="warn" (click)="eliminar(element.idRuta)">
+        <mat-icon>delete</mat-icon> Eliminar
+      </button>
+    </div>
+  </div>
+</div>
+
+<mat-paginator
+  [length]="dataSource.filteredData.length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[4, 10, 20]"
+  showFirstLastButtons
+  (page)="cambiarPagina($event)">
+</mat-paginator>

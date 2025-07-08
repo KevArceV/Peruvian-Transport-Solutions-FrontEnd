@@ -1,0 +1,51 @@
+<div class="container">
+  <div style="text-align: center; margin: 3%;">
+    <h1>{{ edicion ? 'Actualizar' : 'Registrar' }} Item</h1>
+  </div>
+
+  <div >
+    <form [formGroup]="form" (submit)="aceptar()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Título</mat-label>
+        <input matInput formControlName="title" />
+        <mat-error *ngIf="form.get('title')?.hasError('required')">
+          El título es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput formControlName="description" rows="4"></textarea>
+        <mat-error *ngIf="form.get('description')?.hasError('required')">
+          La descripción es obligatoria.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>URL de imagen</mat-label>
+        <input matInput formControlName="image" />
+        <mat-error *ngIf="form.get('image')?.hasError('required')">
+          La imagen es obligatoria.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Formato</mat-label>
+        <mat-select formControlName="format">
+           @for (food of formats; track food) {
+          <mat-option [value]="food.value">{{ food.viewValue }}</mat-option>
+          }
+        </mat-select>
+        <mat-error *ngIf="form.get('format')?.hasError('required')">
+          El formato es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+      <div style="text-align: center; margin-top: 20px;">
+        <button mat-raised-button color="primary" type="submit">
+          {{ edicion ? 'Actualizar' : 'Registrar' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

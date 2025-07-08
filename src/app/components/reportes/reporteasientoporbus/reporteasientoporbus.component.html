@@ -1,0 +1,15 @@
+<div class="title-container">
+    <div style="text-align: center" class="title">
+        <h1>Reporte de Asientos Vendidos por Bus</h1>
+    </div>
+    <div style="text-align: center" class="chart-container">
+        <canvas
+        baseChart
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [type]="barChartType"
+        [legend]="barChartLegend"
+        ></canvas>
+    </div>
+</div>

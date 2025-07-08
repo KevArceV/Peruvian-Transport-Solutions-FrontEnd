@@ -1,0 +1,92 @@
+/* Hero ya existente */
+.hero {
+  height: 100vh;               /* antes era 80vh */
+  background: url('/assets/images/fondo.png') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;            /* por si había un margen que producía la franja */
+}
+
+/* Botón “Volver al inicio” */
+.btn-back {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: #fff;
+  background: rgba(0,0,0,0.3);
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.btn-back mat-icon {
+  margin-right: 0.25rem;
+}
+
+/* Switch de idioma */
+.lang-switch {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Tarjeta de login */
+.login-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(154, 138, 66, 0.9);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  width: 320px;
+  max-width: 90%;
+  color: #fff;
+}
+.login-card h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  font-weight: 500;
+}
+
+/* Campos de formulario */
+.full-width {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Texto de registro */
+.register-text {
+  text-align: center;
+  font-size: 0.875rem;
+  margin: 1rem 0 1.5rem;
+}
+.register-text a {
+  color: #fff;
+  font-weight: 600;
+  margin-left: 0.25rem;
+  text-decoration: underline;
+}
+
+/* Botón de “Ingresar” */
+.login-btn {
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .login-card {
+    padding: 1.5rem;
+    width: 90%;
+  }
+}

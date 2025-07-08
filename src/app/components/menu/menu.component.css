@@ -1,0 +1,67 @@
+/* estilo para la barra completa */
+.custom-toolbar {
+  background-color: #948862;
+  color: white;
+  display: flex;          /* añadido */
+  align-items: center;    /* añadido */
+}
+
+/* estilo para los botones de la barra */
+.custom-toolbar button {
+  color: white;
+}
+
+/* estilo para los iconos dentro de los botones de la barra */
+.custom-toolbar mat-icon {
+  color: white;
+}
+
+/* si quieres también que los items del mat-menu salgan en blanco sobre fondo #948862 */
+.mat-menu-item {
+  color: white;
+  background-color: #948862;
+}
+
+/* al hacer hover en el menú */
+.mat-menu-item:hover {
+  background-color: #7c734f; /* un tono un poco más oscuro al pasar el mouse */
+}
+
+.btn-rojo {
+  transition: background-color 0.2s, transform 0.1s;
+}
+.btn-rojo:hover {
+  background-color: #032b0a;
+  transform: translateY(-2px);
+}
+
+.custom-toolbar.hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+.mat-toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+/* Escala y sombra al pasar por encima */
+.user-btn,
+.logout-btn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.user-btn:hover,
+.logout-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Color de fondo extra al hover (opcional) */
+.user-btn:hover {
+  background-color: #032b0a;
+}
+.logout-btn:hover {
+  background-color: #032b0a;
+}
+
+
+
