@@ -13,7 +13,10 @@ const browserDistFolder = resolve(serverDistFolder, '../browser');
 
 const app = express();
 const angularApp = new AngularNodeAppEngine();
+import { AngularAppEngine, createRequestHandler } from '@angular/ssr';
+import {getContext} from '@netlify/angular-runtime/context';
 
+const angularAppEngine = new AngularAppEngine();
 /**
  * Example Express Rest API endpoints can be defined here.
  * Uncomment and define endpoints as necessary.
@@ -29,6 +32,17 @@ const angularApp = new AngularNodeAppEngine();
 /**
  * Serve static files from /browser
  */
+
+export async function netlifyAppEngineHandler(request: Request): Promise<Response> {
+  const context = getContext();  // Obtén el contexto necesario para Netlify.
+
+  // Renderiza la solicitud usando AngularAppEngine.
+  const result = await angularAppEngine.handle(request, context);
+
+  // Si no se encuentra la respuesta, devuelve un 404.
+  return result || new Response('Not found', { status: 404 });
+}
+
 app.use(
   express.static(browserDistFolder, {
     maxAge: '1y',
@@ -63,4 +77,4 @@ if (isMainModule(import.meta.url)) {
 /**
  * Request handler used by the Angular CLI (for dev-server and during build) or Firebase Cloud Functions.
  */
-export const reqHandler = createNodeRequestHandler(app);
+export const reqHandler = createRequestHandler(netlifyAppEngineHandler);
