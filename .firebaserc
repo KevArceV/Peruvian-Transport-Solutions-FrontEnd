@@ -1,8 +1,6 @@
 {
   "projects": {
-    "Peruvian": "peruvian-transport-solution",
-    "default": "peruvian-transport-solution",
-    "grubit-test": "peruvian-transport-solution"
+    "default": "romina-d0912"
   },
   "targets": {},
   "etags": {}
